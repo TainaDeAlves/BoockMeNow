@@ -23,13 +23,15 @@ body {
     align-items: center;
     padding-top: 10px;
     padding-bottom: 10px;
-    height: 65%;
+    height: 65px;
 
 }
 
 .container {
     max-width: 1140px;
     margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 #menu ul {
@@ -178,7 +180,7 @@ body {
 }
 
 .card-servico {
-    width: calc(33.33% - 30px);
+    width: calc((100% / 3) - 30px);
     flex-grow: 1;
 }
 
@@ -225,6 +227,7 @@ body {
 
 #linha-rodape {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .coluna-rodape {
@@ -276,6 +279,23 @@ body {
 
 /* estilo mobile */
 @media (max-width: 760px) {
+
+    #cabecalho {
+        position: fixed;
+        background-color: #fff;
+        width: 100%;
+        z-index: 99999;
+    }
+
+    #logotipo img {
+        height: 30px;
+    }
+
+    #banner {
+        padding-top: 60px;
+        min-height: 330px;
+    }
+
     #botao-menu-mobile {
         display: block;
         /* mostra o botão na tela*/
@@ -285,13 +305,20 @@ body {
     }
 
     #menu {
-        position: absolute;
+
+        position: fixed;
         background-color: #fff;
         width: 250px;
         height: 100vh;
         top: 65px;
+        left: -255px;
         z-index: 99999;
         box-shadow: 2px 5px 5px #565656;
+        transition: left 0.5s;
+    }
+
+    #menu.menu-ativo {
+        left: 0;
     }
 
     #menu ul {
@@ -299,7 +326,50 @@ body {
         display: block;
     }
 
-    #menu li {
+    #menu li:hover {
+        background-color: #90e0ff;
+        border-radius: 20px;
         padding: 10px;
+    }
+
+    #formPesquisa {
+        margin-left: 15px;
+        margin-right: 15px;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    #formPesquisa form {
+        flex-direction: column;
+    }
+
+    #formPesquisa input {
+        flex-grow: 1;
+    }
+
+    .form-icon {
+        display: flex;
+        width: 100%;
+    }
+
+    .lista-servicos-banner {
+        display: none;
+    }
+
+    #banner h2 {
+        font-size: 20px;
+    }
+
+    #banner p {
+        font-size: 14px;
+    }
+
+    .card-servico {
+        width: calc((100% / 2) - 30px);
+        flex-grow: 1;
+    }
+
+    .coluna-rodape {
+        width: 50%;
     }
 }
